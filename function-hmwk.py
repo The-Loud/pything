@@ -1,6 +1,7 @@
 # Calc the volume of a sphere.
 
 import math
+import string
 
 
 def vol(rad):
@@ -14,7 +15,7 @@ print(vol(2))
 # number is in a given range (inclusive of high and low)
 
 def ran_check(num, low, high):
-    if num in range(low, high):
+    if num in range(low, high + 1):
         return num
 
 
@@ -24,7 +25,7 @@ print(ran_check(5, 6, 7))
 
 
 def ran_bool(num, low, high):
-    return num in range(low, high)
+    return num in range(low, high + 1)
 
 
 print(ran_bool(5, 6, 7))
@@ -74,3 +75,11 @@ def palindrome(s):
 
 
 print(palindrome('helleh'))
+
+
+def ispangram(str1, alphabet=string.ascii_lowercase):
+    alphaset = set(alphabet)
+    return alphaset <= set(str1.lower())
+
+
+print(ispangram("The quick brown fox jumps over the lazy dog"))

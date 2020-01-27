@@ -28,6 +28,13 @@ while not Win:
 
     p_board(movelist)
 
+    def player_choice(board):
+        pos = 0
+        while pos not in range(1, 10) or not check_move(board):
+            pos = int(input('Choose a position (1-9): '))
+        return pos
+
+
     def win_cond(board, letter):
         return ((board['1'] == letter and board['2'] == letter and board['3'] == letter) or # first row
                 (board['4'] == letter and board['5'] == letter and board['6'] == letter) or # second row
@@ -55,7 +62,7 @@ while not Win:
         elif turn == 'O':
             movelist[move] = 'O'
             turn = 'X'
+        # print the board
         p_board(movelist)
 
-    # print the board
     Win = True
